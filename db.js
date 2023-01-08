@@ -1,6 +1,6 @@
 
-const sqlite3 = require("sqlite3").verbose();
-const filepath = "./test.db";
+const sqlite3 = require('sqlite3').verbose();
+const filepath = './test.db';
 
 function createDbConnection() {
   const db = new sqlite3.Database(filepath, (error) => {
@@ -13,7 +13,6 @@ function createDbConnection() {
     createUserTable(db);
     createExercisesTable(db);
   });
-  console.log("Connection with SQLite has been established");
   return db;
 }
 
@@ -22,8 +21,6 @@ function createUserTable(db) {
     CREATE TABLE IF NOT EXISTS user (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username text UNIQUE,
-        logs text,
-        count INTEGER,
         CONSTRAINT username_unique UNIQUE (username)
     )`
     ); 
